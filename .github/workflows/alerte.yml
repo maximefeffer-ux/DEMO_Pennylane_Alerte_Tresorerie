@@ -1,0 +1,22 @@
+name: Alerte solde négatif
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  alerte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python script.py
+        env:
+          PENNYLANE_TOKEN: ${{ secrets.PENNYLANE_TOKEN }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
