@@ -10,17 +10,19 @@ Un cabinet comptable gérant plusieurs dizaines de dossiers clients sur Pennylan
 
 ## Architecture
 
+\`\`\`
 clients.csv (correspondance client → collaborateur)
-│
-▼
+        │
+        ▼
 GitHub Actions (déclenchement programmé, lundi 10h Europe/Paris)
-│
-▼
+        │
+        ▼
 script.py
-├─ lire_clients() → lit le CSV
-├─ recuperer_comptes() → appelle l'API Pennylane (par dossier client)
-├─ filtrer_et_regrouper() → ne garde que les soldes négatifs, regroupe par collaborateur
-└─ envoyer_email() → un email par collaborateur, via SMTP Gmail
+  ├─ lire_clients()          → lit le CSV
+  ├─ recuperer_comptes()     → appelle l'API Pennylane (par dossier client)
+  ├─ filtrer_et_regrouper()  → ne garde que les soldes négatifs, regroupe par collaborateur
+  └─ envoyer_email()         → un email par collaborateur, via SMTP Gmail
+\`\`\`
 
 ## Défis techniques rencontrés
 
