@@ -10,13 +10,13 @@ Un cabinet comptable gérant plusieurs dizaines de dossiers clients sur Pennylan
 
 ## Architecture
 
-\`\`\`
 clients.csv (correspondance client → collaborateur)
-        │
-        ▼
+│
+▼
 GitHub Actions (déclenchement programmé, lundi 10h Europe/Paris)
-        │
-        ▼
+│
+│
+▼
 script.py
   ├─ lire_clients()          → lit le CSV
   ├─ recuperer_comptes()     → appelle l'API Pennylane (par dossier client)
